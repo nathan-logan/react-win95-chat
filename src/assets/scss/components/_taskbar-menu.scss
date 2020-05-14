@@ -1,0 +1,75 @@
+.home-view__taskbar__menu {
+  position: absolute;
+  display: flex;
+  left: 0;
+  bottom: 32px;
+  height: 550px;
+  width: 320px;
+  background: $grey;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #FFFFFF #808080 #808080 #FFFFFF;
+  box-shadow: 2px 2px 0px #1B1B1B;
+  &__logo {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    background: #808080;
+    &__text {
+      position: absolute;
+      transform: rotate(-90deg);
+      right: 1;
+      left: -65px;
+      bottom: 100px;
+      font-size: 24px;
+      font-weight: bold;
+      color: $grey;
+      text-shadow: 2px 0 $grey;
+      letter-spacing: 2px;
+      span {
+        font-weight: normal;
+        color: $text;
+        text-shadow: none;
+      }
+    }
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 80%;
+    height: 100%;
+    &__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 35px;
+      margin:1rem 1rem;
+      #text {
+        &:before {
+          content: "";
+          position: absolute;
+          left: 42px;
+          bottom: 0;
+          background: #1b1b1b;
+          height: 2px;
+          width: 10px;
+        }
+      }
+      img {
+        margin-right: 8px;
+        width: 35px;
+        &#user {
+          margin-left: 4px;
+          margin-right: 4px !important;
+        }
+      }
+      &__divider {
+        width: calc(100% -3px);
+        border-width: 2px;
+        border-style: solid;
+        border-color: #808080 #FFFFFF #FFFFFF #808080;
+      }
+    }
+  }
+}

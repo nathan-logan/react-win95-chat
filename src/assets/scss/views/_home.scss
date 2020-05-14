@@ -1,0 +1,66 @@
+.home-view {
+  &__desktop {
+    height: calc(100vh - 35px);
+    background: $cyan;
+  }
+  &__taskbar {
+    position: relative;
+    display: flex;
+    height: 35px;
+    background: $grey;
+    user-select: none;
+    &__menu-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      font-weight: bold;
+      font-size: 12px;
+      border-width: 3px;
+      border-style: solid;
+      border-color: #FFFFFF #808080 #808080 #FFFFFF;
+      margin: 3px 17px 3px 5px;
+      img {
+        margin-right: 4px;
+        width: 28px;
+        height: 28px;
+      }
+      &--open {
+        border-color: #808080 #FFFFFF #FFFFFF #808080 !important;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        bottom: 50%;
+        transform: translateY(50%);
+        border-width: 2px;
+        border-style: solid;
+        border-color: #808080 #FFFFFF #FFFFFF #808080;
+        right: -12px;
+      }
+    }
+    &__time {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 120px;
+      right: 0;
+      font-size: 12px;
+      padding: 2px;
+      margin: 3px;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #808080 #FFFFFF #FFFFFF #808080;
+      span {
+        margin-right: 20px;
+      }
+      img {
+        width: 21px;
+        margin-left: 4px;
+      }
+    }
+  }
+}

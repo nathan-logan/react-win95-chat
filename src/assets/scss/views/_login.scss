@@ -1,0 +1,125 @@
+.login-view {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: $cyan;
+  &__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 650px;
+    height: 205px;
+    background: $grey;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    &__title-bar {
+      background: #000381;
+      height: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__title {
+        font-size: 12px;
+        color: $text;
+        padding-left: 4px;
+      }
+      &__icons {
+        display: flex;
+        padding: 2px;
+        &__icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 8px;
+          font-weight: bold;
+          margin: 0 2px;
+          width: 15px;
+          height: 15px;
+          background: $grey;
+          border-width: 2px;
+          border-style: solid;
+          border-color: #FFFFFF #808080 #808080 #FFFFFF;
+        }
+      }
+    }
+    &__form {
+      display: flex;
+      margin-top: 16px;
+      &__image {
+        display: flex;
+        justify-content: center;
+        img {
+          width: 48px;
+          height: 48px;
+        }
+        width: 115px;
+      }
+      &__input {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        &__text {
+          margin-bottom: 40px;
+          line-height: 22px;
+        }
+        &__inputs {
+          &__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            input {
+              width: 70%;
+              height: 25px;
+              font-size: 10px;
+              font-family: "pix M 8pt";
+              border-width: 2px;
+              border-style: solid;
+              border-color: #FFFFFF #808080 #808080 #FFFFFF;
+              &:focus {
+                outline: none;
+              }
+            }
+            label {
+              position: relative;
+              &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -7px;
+                background: #1b1b1b;
+                height: 1px;
+                width: 10px;
+              }
+            }
+          }
+        }
+      }
+      &__buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 132px;
+        &__button {
+          font-family: "pix M 8pt";
+          font-size: 10px;
+          width: 100px;
+          height: 25px;
+          border-width: 2px;
+          border-style: solid;
+          border-color: #FFFFFF #808080 #808080 #FFFFFF;
+          &:focus {
+            border-color: #8C8C8C #1B1B1B #1B1B1B #8C8C8C;
+            outline: none;
+          }
+          &--ok {
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+}

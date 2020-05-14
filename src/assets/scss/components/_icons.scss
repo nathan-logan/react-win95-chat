@@ -1,0 +1,10 @@
+.arrow {
+  &__right {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 4.7px;
+    border-color: transparent transparent transparent #000;
+  }
+}
