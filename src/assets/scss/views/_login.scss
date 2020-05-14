@@ -90,7 +90,7 @@
                 position: absolute;
                 left: 0;
                 bottom: -7px;
-                background: #1b1b1b;
+                background: $black;
                 height: 1px;
                 width: 10px;
               }
@@ -112,7 +112,7 @@
           border-style: solid;
           border-color: #FFFFFF #808080 #808080 #FFFFFF;
           &:focus {
-            border-color: #8C8C8C #1B1B1B #1B1B1B #8C8C8C;
+            border-color: #8C8C8C $black $black #8C8C8C;
             outline: none;
           }
           &--ok {

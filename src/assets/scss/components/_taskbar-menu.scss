@@ -9,7 +9,7 @@
   border-width: 3px;
   border-style: solid;
   border-color: #FFFFFF #808080 #808080 #FFFFFF;
-  box-shadow: 2px 2px 0px #1B1B1B;
+  box-shadow: 2px 2px 0px $black;
   &__logo {
     position: relative;
     height: 100%;
@@ -34,6 +34,7 @@
     }
   }
   &__items {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -43,15 +44,43 @@
       position: relative;
       display: flex;
       align-items: center;
-      height: 35px;
-      margin:1rem 1rem;
+      height: 45px;
+      padding: 1rem 1rem;
+      .arrow__right {
+        position: absolute;
+        right: 20px;
+      }
+      &:hover {
+        .arrow__right {
+          border-color: transparent transparent transparent $text !important;
+        }
+        background: $blue;
+        color: $text;
+        #text {
+          &:before {
+            background: $text !important;
+          }
+        }
+      }
+      &--active {
+        .arrow__right {
+          border-color: transparent transparent transparent $text !important;
+        }
+        background: $blue;
+        color: $text;
+        #text {
+          &:before {
+            background: $text !important;
+          }
+        }
+      }
       #text {
         &:before {
           content: "";
           position: absolute;
-          left: 42px;
-          bottom: 0;
-          background: #1b1b1b;
+          left: 59px;
+          bottom: 20px;
+          background: $black;
           height: 2px;
           width: 10px;
         }
@@ -69,6 +98,43 @@
         border-width: 2px;
         border-style: solid;
         border-color: #808080 #FFFFFF #FFFFFF #808080;
+      }
+      &__sub-menu {
+        z-index: 100;
+        position: absolute;
+        right: -200px;
+        width: 200px;
+        top: -3px;
+        background: $grey;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #FFFFFF #808080 #808080 #FFFFFF;
+        box-shadow: 2px 2px 0 $black;
+        color: $black;
+        &__item {
+          height: 30px;
+          padding: 5px;
+          font-size: 12px;
+          &:hover {
+            background: $blue;
+            a {
+              color: $text !important;
+            }
+          }
+          img {
+            width: 20px;
+            height: 20px;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $black;
+            span {
+              margin-left: 4px;
+            }
+          }
+        }
       }
     }
   }
