@@ -11,6 +11,13 @@ const UserProvider = props => {
       const user = await generateUserDocument(userAuth);
       setUser(user);
     });
+    // swap these out to save quota on firebase xD
+    // const user = {
+    //   uid: "yR50WCPh2SWQRKeZDuuEvi8MBIr2",
+    //   email: "nathan@context.gg",
+    //   displayName: "guest0001"
+    // }
+    // setUser(user);
   }, []);
 
   return (

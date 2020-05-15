@@ -112,6 +112,8 @@
         box-shadow: 2px 2px 0 $black;
         color: $black;
         &__item {
+          display: flex;
+          align-items: center;
           height: 30px;
           padding: 5px;
           font-size: 12px;

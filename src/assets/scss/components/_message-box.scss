@@ -1,0 +1,56 @@
+.chat-ui {
+  &__container {
+    &__content {
+      position: relative;
+      &__message-box {
+        position: relative;
+        margin: 6px;
+        height: 190px;
+        &__inner {
+          display: flex;
+          height: calc(100% - 22px);
+          border-width: 2px;
+          border-style: solid;
+          border-color: $black $border-white $border-white $black;
+          box-sizing: border-box;
+          textarea {
+            border: none;
+            border-radius: none;
+            position: relative;
+            font-family: $font;
+            font-size: 14px;
+            width: calc(100% - 150px);
+            border-width: 2px;
+            border-style: solid;
+            border-color: $black $grey $grey $black;
+            box-sizing: border-box;
+            &:focus {
+              border-color: $black $border-grey $border-grey $black !important;
+              outline: none;
+          }
+          }
+          &__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            min-height: 100%;
+            button {
+              font-family: "pix M 8pt";
+              font-size: 10px;
+              width: 100px;
+              height: 25px;
+              border-width: 2px;
+              border-style: solid;
+              border-color: #FFFFFF #808080 #808080 #FFFFFF;
+              &:focus {
+                border-color: #8C8C8C $black $black #8C8C8C;
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

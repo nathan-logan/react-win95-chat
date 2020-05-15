@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.625ca93e.chunk.css",
+    "main.js": "/static/js/main.d19b37e8.chunk.js",
+    "main.js.map": "/static/js/main.d19b37e8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0d2ecf00.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0d2ecf00.js.map",
+    "static/js/2.690516b6.chunk.js": "/static/js/2.690516b6.chunk.js",
+    "static/js/2.690516b6.chunk.js.map": "/static/js/2.690516b6.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9e56cd201ac7b4a9dd5a3d3f5ea06a8a.js": "/precache-manifest.9e56cd201ac7b4a9dd5a3d3f5ea06a8a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.625ca93e.chunk.css.map": "/static/css/main.625ca93e.chunk.css.map",
+    "static/js/2.690516b6.chunk.js.LICENSE.txt": "/static/js/2.690516b6.chunk.js.LICENSE.txt",
+    "static/media/chat.ico": "/static/media/chat.b67631dd.ico",
+    "static/media/dialog.ico": "/static/media/dialog.bba095c8.ico",
+    "static/media/documents.ico": "/static/media/documents.00555c56.ico",
+    "static/media/network_icon.ico": "/static/media/network_icon.ceec0159.ico",
+    "static/media/programs.ico": "/static/media/programs.d08005f7.ico",
+    "static/media/shutdown.ico": "/static/media/shutdown.8683e84b.ico",
+    "static/media/twitter.png": "/static/media/twitter.a512f0d1.png",
+    "static/media/user.ico": "/static/media/user.d0298e9d.ico",
+    "static/media/volume_icon.ico": "/static/media/volume_icon.190d7e69.ico",
+    "static/media/windows_key_icon.ico": "/static/media/windows_key_icon.9daa1778.ico",
+    "static/media/windows_logo.ico": "/static/media/windows_logo.434131cf.ico"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d2ecf00.js",
+    "static/js/2.690516b6.chunk.js",
+    "static/css/main.625ca93e.chunk.css",
+    "static/js/main.d19b37e8.chunk.js"
+  ]
+}
