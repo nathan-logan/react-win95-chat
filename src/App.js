@@ -7,6 +7,7 @@ import UserProvider from './providers/UserProvider';
 
 import Desktop from './views/Desktop';
 import Login from './views/Login';
+import Logout from './views/Logout';
 import Register from './views/Register';
 
 import './assets/scss/main.scss';
@@ -23,6 +24,7 @@ const App = props => {
         <Routes>
           <Route path="/" element={<Desktop />} />
           <Route path="login" element={<Login />} />
+          <Route path="logout" element={<Logout />} />
           <Route path="register" element={<Register />} />
         </Routes>
       </Router>

@@ -1,0 +1,62 @@
+.error-box {
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  background: $grey;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #FFFFFF #808080 #808080 #FFFFFF;
+  box-shadow: 2px 2px 0 $black;
+  &__title-bar {
+    background: #000381;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    &__title {
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+      color: $text;
+      padding-left: 4px;
+      img {
+        width: 18px;
+        margin-right: 4px;
+      }
+    }
+    &__icons {
+      display: flex;
+      padding: 2px;
+      &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        font-weight: bold;
+        margin: 0 2px;
+        width: 15px;
+        height: 15px;
+        background: $grey;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #FFFFFF #808080 #808080 #FFFFFF;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__content {
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: 4px;
+    }
+  }
+}

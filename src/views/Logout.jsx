@@ -11,7 +11,7 @@ const Login = () => {
   }, [])
 
   return (
-    <div></div>
+    <div>Logging you out...</div>
   )
 }
 

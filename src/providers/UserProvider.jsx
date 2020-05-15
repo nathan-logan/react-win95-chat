@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { auth, generateUserDocument } from '../firebase';
+import { connect } from "react-redux";
+import { sendIncomingConnection } from "../store/socket/actions";
 
 export const UserContext = createContext({ user: null });
 
@@ -9,6 +11,7 @@ const UserProvider = props => {
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
       const user = await generateUserDocument(userAuth);
+      props.sendIncomingConnection(user.displayName);
       setUser(user);
     });
     // swap these out to save quota on firebase xD
@@ -27,4 +30,8 @@ const UserProvider = props => {
   )
 }
 
-export default UserProvider;
+const mapDispatchToProps = (dispatch) => {
+  return { sendIncomingConnection: (displayName: string) => dispatch(sendIncomingConnection(displayName)) }
+}
+
+export default connect(null, mapDispatchToProps)(UserProvider);

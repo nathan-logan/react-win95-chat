@@ -103,10 +103,13 @@
           box-sizing: border-box;
           .message {
             margin-bottom: 1rem;
+            font-size: 14px;
+            word-wrap: break-word;
             .timestamp {
-              font-size: 10px;
+              font-size: 11px;
             }
             .displayName {
+              font-size: 14px;
               color: red;
               font-weight: bold;
             }

@@ -1,7 +1,9 @@
 import * as io from 'socket.io-client';
+import { userConnected } from "../message/actions";
 
 const EVENTS = {
   CONNECT: 'connect',
+  NEW_CONNECTION: 'new_connection',
   DISCONNECT: 'disconnect',
   MESSAGE: 'message'
 };
@@ -13,9 +15,10 @@ export default class Socket {
   onMessage;
   socket;
 
-  constructor(onChange, onMessage) {
+  constructor(onChange, onMessage, onConnection) {
     this.onChange = onChange;
     this.onMessage = onMessage;
+    this.onConnection = onConnection;
     this.socket = '';
     this.user = '';
     this.port = '';
@@ -33,8 +36,16 @@ export default class Socket {
   }
 
   onConnected = () => {
+    this.socket.on(EVENTS.NEW_CONNECTION, this.onConnection);
     this.socket.on(EVENTS.MESSAGE, this.onMessage);
-    this.onChange(true);
+  }
+
+  sendIncomingConnection = (user) => {
+    if (typeof this.socket.emit === 'function') {
+      this.socket.emit(EVENTS.NEW_CONNECTION, user)
+    } else {
+      console.error('Cannot emit socket connections. Socket.io not connected.');
+    }
   }
 
   sendMessage = (message) => {

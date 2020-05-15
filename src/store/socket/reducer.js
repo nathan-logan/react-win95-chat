@@ -1,23 +1,25 @@
-mport { CONNECTION_CHANGED } from '../actions';
+import { CONNECTION_CHANGED, NEW_CONNECTION, SEND_CONNECTION_RESPONSE } from './actions';
 
 const INITIAL_STATE = {
   connected: false,
+  connectedUsers: [],
   port: '3001'
 }
 
 function socketReducer(state = INITIAL_STATE, action) {
-  let reduced;
   switch (action.type) {
-    case CONNECTION_CHANGED:
-      reduced = Object.assign({}, state, {
-        connected: action.connected,
-        isError: false
-      });
-      break;
+    case SEND_CONNECTION_RESPONSE:
+      return {
+        ...state,
+        connected: true,
+        isError: false,
+        connectedUsers: [...state.connectedUsers, action.displayName]
+      };
+    case NEW_CONNECTION:
+      return state;
     default:
-      reduced = state;
+      return state;
   };
-  return reduced;
 }
 
 export default socketReducer;

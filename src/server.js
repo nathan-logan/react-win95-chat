@@ -19,6 +19,11 @@ io.on('connect', (socket) => {
     io.emit('message', msg);
   });
 
+  socket.on('new_connection', (user) => {
+    console.log('user received:', user);
+    io.emit('new_connection', user);
+  });
+
   // Say Bye to all connected clients
   socket.on('disconnect', function () {
     console.log('Socket disconnecting..');

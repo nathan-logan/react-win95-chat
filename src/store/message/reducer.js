@@ -1,7 +1,7 @@
 import { SEND_MESSAGE_RESPONSE, MESSAGE_SENT } from './actions';
 
 const INITIAL_STATE = {
-  displayName: 'guest0001',
+  displayName: 'guest',
   messages: []
 }
 

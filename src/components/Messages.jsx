@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import Message from './Message';
 
 const Messages = props => {
-  console.log('props: ', props);
-
   return (
     <div className="chat-ui__container__content__messages">
       <div className="chat-ui__container__content__messages__inner">
@@ -16,7 +14,7 @@ const Messages = props => {
 }
 
 const mapStateToProps = (state) => ({
-  messages: state.messages
+  messages: state.messageState.messages
 })
 
 export default connect(mapStateToProps)(Messages);
