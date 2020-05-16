@@ -11,6 +11,7 @@ const UserProvider = props => {
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
       const user = await generateUserDocument(userAuth);
+      if (!user) return setUser(null);
       props.sendIncomingConnection(user.displayName);
       setUser(user);
     });

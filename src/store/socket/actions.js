@@ -24,6 +24,7 @@ export const sendIncomingDisconnection = (displayName) => {
 }
 
 export const disconnectRequestReceived = (payload) => {
+  console.log('payload: ', payload);
   return {
     type: SEND_DISCONNECTION_RESPONSE,
     displayName: payload.displayName,
