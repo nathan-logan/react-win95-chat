@@ -4,6 +4,7 @@ import { userConnected } from "../message/actions";
 const EVENTS = {
   CONNECT: 'connect',
   NEW_CONNECTION: 'new_connection',
+  NEW_DISCONNECTION: 'new_disconnection',
   DISCONNECT: 'disconnect',
   MESSAGE: 'message'
 };
@@ -13,12 +14,14 @@ export default class Socket {
   port;
   onChange;
   onMessage;
+  onDisconnection;
   socket;
 
-  constructor(onChange, onMessage, onConnection) {
+  constructor(onChange, onMessage, onConnection, onDisconnection) {
     this.onChange = onChange;
     this.onMessage = onMessage;
     this.onConnection = onConnection;
+    this.onDisconnection = onDisconnection;
     this.socket = '';
     this.user = '';
     this.port = '';
@@ -36,13 +39,25 @@ export default class Socket {
   }
 
   onConnected = () => {
+    this.socket.on(EVENTS.NEW_DISCONNECTION, this.onDisconnection);
     this.socket.on(EVENTS.NEW_CONNECTION, this.onConnection);
     this.socket.on(EVENTS.MESSAGE, this.onMessage);
   }
 
   sendIncomingConnection = (user) => {
+    console.log('sendIncomingConnection: ', user);
     if (typeof this.socket.emit === 'function') {
       this.socket.emit(EVENTS.NEW_CONNECTION, user)
+    } else {
+      console.error('Cannot emit socket connections. Socket.io not connected.');
+    }
+  }
+
+  // runs when a user disconnects from the chat room
+  sendIncomingDisconnection = (user) => {
+    console.log('sendIncomingDisconnection: ', user);
+    if (typeof this.socket.emit === 'function') {
+      this.socket.emit(EVENTS.NEW_DISCONNECTION, user)
     } else {
       console.error('Cannot emit socket connections. Socket.io not connected.');
     }

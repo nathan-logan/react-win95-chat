@@ -1,21 +1,34 @@
 import Socket from "./Socket";
-import { CONNECT_SOCKET, SEND_CONNECTION_REQUEST, connectionChanged, CONNECTION_CHANGED, newUserConnected, incomingConnectionReceived } from "./actions";
-import { messageReceived, messageSent, SEND_MESSAGE_REQUEST } from "../message/actions";
+import {
+  CONNECT_SOCKET,
+  CONNECTION_CHANGED,
+  SEND_CONNECTION_REQUEST,
+  SEND_DISCONNECTION_REQUEST,
+  connectionChanged,
+  newUserConnected,
+  incomingConnectionReceived,
+  disconnectRequestReceived,
+} from "./actions";
+import {
+  messageReceived,
+  messageSent,
+  SEND_MESSAGE_REQUEST
+} from "../message/actions";
 
 const socketMiddleware = (store) => {
 
-  const onIncomingConnection = (user) => store.dispatch(incomingConnectionReceived(user));
+  const onIncomingDisconnection = (user) => store.dispatch(disconnectRequestReceived(user));
 
-  const onConnectionChange = (isConnected, user) => {
-    store.dispatch(connectionChanged(isConnected, user));
-  }
+  const onIncomingConnection = (payload) => store.dispatch(incomingConnectionReceived(payload));
+
+  const onConnectionChange = (isConnected, user) => store.dispatch(connectionChanged(isConnected, user));
 
   const onIncomingMessage = (message) => store.dispatch(messageReceived(message));
 
-  const socket = new Socket(onConnectionChange, onIncomingMessage, onIncomingConnection);
+  const socket = new Socket(onConnectionChange, onIncomingMessage, onIncomingConnection, onIncomingDisconnection);
 
   return (next) => (action) => {
-    console.log('action: ', action);
+    console.log('middleware action: ', action);
     const messageState = store.getState().messageState;
     const socketState = store.getState().socketState;
 
@@ -26,6 +39,10 @@ const socketMiddleware = (store) => {
       case SEND_CONNECTION_REQUEST:
         if (action.displayName === 'guest') return;
         socket.sendIncomingConnection(action.displayName);
+        break;
+      case SEND_DISCONNECTION_REQUEST:
+        if (action.displayName === 'guest') return;
+        socket.sendIncomingDisconnection(action.displayName);
         break;
       case SEND_MESSAGE_REQUEST:
         socket.sendMessage(action.message);

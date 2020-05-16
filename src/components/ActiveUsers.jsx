@@ -14,7 +14,6 @@ const ActiveUsers = props => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     connectedUsers: state.socketState.connectedUsers
   }
